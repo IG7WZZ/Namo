@@ -1,0 +1,96 @@
+index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido Especial 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      max-width: 400px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 1.1em;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .yes {
+      background: #4CAF50;
+      color: white;
+    }
+    .yes:hover {
+      transform: scale(1.1);
+      background: #45a049;
+    }
+    .no {
+      background: #f44336;
+      color: white;
+      position: relative;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💘 Tenho algo importante pra te perguntar...</h1>
+    <p>Você aceita namorar comigo? 💍✨</p>
+    <button class="yes" onclick="aceitou()">SIM 💖</button>
+    <button class="no" onclick="fugir(this)">NÃO 😅</button>
+  </div>
+
+  <script>
+    function aceitou() {
+      document.body.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;color:white;">
+          <div>
+            <h1>😍 AAAAAAA QUE FELICIDADE!!! 😍</h1>
+            <p>Agora somos oficialmente um casal 💑💖</p>
+          </div>
+        </div>`;
+    }
+
+    function fugir(botao) {
+      botao.style.display = 'none';
+      setTimeout(() => {
+        const x = Math.random() * (window.innerWidth - botao.offsetWidth);
+        const y = Math.random() * (window.innerHeight - botao.offsetHeight);
+        botao.style.display = 'inline-block';
+        botao.style.position = 'absolute';
+        botao.style.left = x + 'px';
+        botao.style.top = y + 'px';
+      }, 400);
+    }
+  </script>
+</body>
+</html>
